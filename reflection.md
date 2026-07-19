@@ -66,3 +66,49 @@ _Updated progressively as each SDLC phase completes. Final version will be writt
 - Corrections needed: Mermaid diagram required one refinement pass (concurrent call annotations). Package version tie-break required manual resolution. Blocking-question sections required user confirmation and replacement with resolved-decision sections.
 - Overall assessment: AI assistance was highly effective for SDLC artifact generation and boilerplate-free implementation. Human review remained essential for cross-checking assumptions, resolving ambiguities, and confirming spec compliance.
 
+---
+
+## Phase 6.5 / 7 / 8 Addendum (Appended - Existing Content Preserved)
+
+### Additional work completed after Phase 6
+- Added frontend-focused tests in Angular for:
+	- API service behavior (request shape + error propagation)
+	- Search form validation and submit behavior
+	- Status result rendering and conditional field visibility
+	- Container-level loading/success/error flow
+- Frontend test suite passes (`14/14`).
+
+### Frontend maintainability and UX refinement
+- Refactored Angular structure to a thin host `app-root` and a dedicated feature container component (`flight-status-page`) without changing business behavior.
+- Applied a premium aviation-themed UI redesign using HTML/SCSS only:
+	- dark navy dashboard background
+	- cyan/blue accent tokens
+	- glassmorphism cards
+	- radar/grid visual motif
+	- responsive layout improvements
+- Preserved API calls, form controls/validation, bindings, and data flow.
+
+### Deploy documentation completion
+- Replaced placeholder `README.md` with clean-clone run instructions including:
+	- prerequisites + version checks + install links
+	- exact copy-pasteable backend, test, and frontend commands
+	- default ports/config details
+	- smoke-test matrix for all key status scenarios
+	- assumptions quick reference
+
+### Operate/resilience follow-up
+- Diagnosed and resolved local runtime CORS issue caused by HTTP->HTTPS redirect (`307` then browser CORS block).
+- Updated backend middleware behavior so HTTPS redirection is not applied in Development.
+- Strengthened log context by including request identifier in request-entry and provider result/exception logs.
+- Revalidated backend tests after operational logging updates: `26/26` passing.
+
+### Updated dimension snapshot (latest)
+- Analyze: Pass
+- Design: Pass
+- Architect: Pass
+- Develop: Pass
+- Test: Pass (backend + frontend suites green)
+- Deploy: Pass (README completed)
+- Operate: Partial (core resilience implemented; deeper production hardening still possible)
+- Document: Partial (reflection updated; prompts log should be finalized strictly from user-provided prompt inventory)
+

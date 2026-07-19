@@ -116,3 +116,70 @@ Implemented and executed tests for:
 
 **AI influence:** AI generated all 16 frontend files, resolved the `NgClass` missing-import issue (initially omitted from `status-result.component.ts` imports array), and ran the production build to confirm zero errors.
 
+---
+
+### Phase 6.5 — Frontend Test Hardening (flight-status-ui)
+
+**Prompt summary:** Sent a dedicated follow-up prompt to create comprehensive frontend tests without changing runtime behavior. Copilot was asked to cover service-layer HTTP behavior, component-level validation/rendering, app-shell/container state handling, and non-2xx error paths.
+
+**Accepted:** Added and updated Angular/Vitest specs:
+- `src/app/services/flight-status-api.service.spec.ts`
+- `src/app/components/search-form/search-form.component.spec.ts`
+- `src/app/components/status-result/status-result.component.spec.ts`
+- Updated shell/feature-level specs to verify loading, success, and error states.
+
+Executed frontend test suite and confirmed all tests pass (`14/14`).
+
+**Rejected / modified:** Browser-computed CSS color values were not asserted in unit tests because jsdom-style environments are better suited for class/assertion validation than pixel-accurate visual rendering checks.
+
+**AI influence:** AI generated the complete frontend testing layer and iterated one failing spec-import issue to green.
+
+---
+
+### Phase 6.x — Frontend Architecture and UX Refinement
+
+**Prompt summary:** Sent a prompt to improve maintainability and UI quality while preserving behavior. Copilot was asked to avoid business-logic changes and refactor toward cleaner component boundaries.
+
+**Accepted:** Refactored Angular structure to a thin host root + dedicated feature container:
+- New feature container: `src/app/features/flight-status-page/flight-status-page.component.*`
+- `app-root` reduced to a host wrapper rendering the feature component.
+- Behavior tests moved to the feature container spec.
+
+Additional visual-only redesign applied to HTML/SCSS for an aviation operations dashboard theme (dark navy, cyan accents, glass panels, radar/grid motifs, responsive spacing).
+
+**Rejected / modified:** No changes made to API calls, routing semantics, form validators, business rules, or data-binding contracts.
+
+**AI influence:** AI performed a non-breaking componentization pass and a purely visual premium redesign while keeping test/build green.
+
+---
+
+### Phase 7 — Deploy (README.md)
+
+**Prompt summary:** Sent the Phase 7 DEPLOY prompt to replace placeholder README with clean-clone operational instructions.
+
+**Accepted:** README now includes:
+- Prerequisites with minimum versions, verification commands, and install links.
+- Exact copy-paste commands for backend run, tests, and frontend run.
+- Configuration section (ports, CORS, environment files, API base URL updates).
+- Manual smoke-test matrix covering OnTime/Delayed/Cancelled/Diverted/Unknown and partial-provider scenarios.
+- Full assumptions list copied from BRD for evaluator quick-reference.
+
+**Rejected / modified:** None; followed prompt constraints and kept commands explicit with no ambiguous placeholders.
+
+**AI influence:** AI authored complete README deployment/runbook content and aligned it to actual repository state.
+
+---
+
+### Phase 8 (Partial) — Operate/Documentation Follow-ups
+
+**Prompt summary:** Follow-up operational/debug prompts were used to resolve runtime behavior in local UI testing and update docs continuity.
+
+**Accepted:**
+- Root-caused and fixed local UI CORS failure pattern (`307` redirect followed by browser CORS error) by applying HTTPS redirection only outside Development in `Program.cs`.
+- Re-validated end-to-end UI → API request/response path.
+- Continued updates to `prompts.md` and `reflection.md` as phases progressed.
+
+**Rejected / modified:** Did not introduce new dependencies or non-required platform features during operational fixes.
+
+**AI influence:** AI handled troubleshooting, safe middleware adjustment, and documentation synchronization.
+

@@ -75,8 +75,8 @@ app.MapGet("/flights/status", async (
     CancellationToken cancellationToken) =>
 {
     logger.LogInformation(
-        "Request received: FlightNumber={FlightNumber} Date={Date}",
-        flightNumber, date);
+        "Request received: RequestId={RequestId} FlightNumber={FlightNumber} Date={Date}",
+        httpContext.TraceIdentifier, flightNumber, date);
 
     // ── Input validation at HTTP boundary (BR-RULE-001, 002, 003) ────────────
     var errors = new List<string>();

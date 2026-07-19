@@ -1,6 +1,7 @@
 using FlightStatus.Api.Domain.Abstractions;
 using FlightStatus.Api.Domain.Enums;
 using FlightStatus.Api.Domain.Models;
+using System.Diagnostics;
 
 namespace FlightStatus.Api.Application.Services;
 
@@ -91,13 +92,18 @@ public sealed class FlightStatusService : IFlightStatusService
         FlightStatusQuery query,
         CancellationToken cancellationToken)
     {
+        var requestId = Activity.Current?.Id ?? "n/a";
+
         try
         {
             var candidate = await provider.GetStatusAsync(query, cancellationToken);
 
             _logger.LogInformation(
-                "Provider result: ProviderName={ProviderName} Status={Status}",
+                "Provider result: RequestId={RequestId} ProviderName={ProviderName} FlightNumber={FlightNumber} Date={Date} Status={Status}",
+                requestId,
                 provider.ProviderName,
+                query.FlightNumber,
+                query.Date,
                 candidate?.Status.ToString() ?? "null");
 
             return candidate;
@@ -106,8 +112,8 @@ public sealed class FlightStatusService : IFlightStatusService
         {
             // BR-RULE-026: one provider exception must not cancel the other
             _logger.LogWarning(
-                "Provider exception: ProviderName={ProviderName} ExceptionType={ExceptionType} Message={Message} FlightNumber={FlightNumber} Date={Date}",
-                provider.ProviderName, ex.GetType().Name, ex.Message, query.FlightNumber, query.Date);
+                "Provider exception: RequestId={RequestId} ProviderName={ProviderName} ExceptionType={ExceptionType} Message={Message} FlightNumber={FlightNumber} Date={Date}",
+                requestId, provider.ProviderName, ex.GetType().Name, ex.Message, query.FlightNumber, query.Date);
 
             return null;
         }

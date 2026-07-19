@@ -1,19 +1,32 @@
 .result-card {
-  background: var(--color-surface);
-  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgb(14 38 57 / 0.84), rgb(8 26 41 / 0.7));
+  border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
-  border-left-width: 5px;
-  padding: 1.25rem 1.5rem;
+  border-left-width: 4px;
+  box-shadow: var(--shadow-glass);
+  padding: 1.3rem 1.4rem;
   margin-top: 1.5rem;
 
-  &.status--on-time    { border-left-color: #22c55e; }
-  &.status--delayed    { border-left-color: #f59e0b; }
-  &.status--cancelled  { border-left-color: #ef4444; }
-  &.status--diverted   { border-left-color: #ef4444; }
-  &.status--unknown    { border-left-color: #9ca3af; }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(100deg, rgb(79 188 255 / 0.06), transparent 52%);
+  }
+
+  &.status--on-time    { border-left-color: var(--color-success); }
+  &.status--delayed    { border-left-color: var(--color-warning); }
+  &.status--cancelled  { border-left-color: var(--color-danger); }
+  &.status--diverted   { border-left-color: var(--color-danger); }
+  &.status--unknown    { border-left-color: var(--color-neutral); }
 }
 
 .result-header {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,77 +42,92 @@
 }
 
 .flight-number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 800;
+  color: #eaf7ff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .flight-date {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  color: #95b8d1;
 }
 
 .status-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.82rem;
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #fff;
 
-  &.status--on-time    { background: #22c55e; }
-  &.status--delayed    { background: #f59e0b; }
-  &.status--cancelled  { background: #ef4444; }
-  &.status--diverted   { background: #ef4444; }
-  &.status--unknown    { background: #9ca3af; }
+  &.status--on-time    { background: linear-gradient(140deg, #19c790, #16956f); }
+  &.status--delayed    { background: linear-gradient(140deg, #f5bf42, #db8a0a); }
+  &.status--cancelled  { background: linear-gradient(140deg, #f97373, #db3f3f); }
+  &.status--diverted   { background: linear-gradient(140deg, #f97373, #db3f3f); }
+  &.status--unknown    { background: linear-gradient(140deg, #8293a6, #627183); }
 }
 
 .result-message {
+  position: relative;
+  z-index: 1;
   margin: 0 0 1rem;
-  color: var(--color-text-secondary);
+  color: #a4c3d8;
   font-size: 0.95rem;
 }
 
 .result-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.5rem 1rem;
+  position: relative;
+  z-index: 1;
   margin: 0;
-}
-
-.detail-row {
-  display: contents;
-
-  dt {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  dd {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--color-text);
-  }
-
-  &--warning dd { color: #f59e0b; }
-  &--meta    dt,
-  &--meta    dd { opacity: 0.65; font-size: 0.8rem; }
-}
-
-/* Re-enable grid layout by wrapping each row */
-.result-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 2rem;
 }
 
 .detail-row {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
-  min-width: 140px;
+  gap: 0.14rem;
+  min-width: 170px;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgb(103 178 224 / 0.16);
+  background: rgb(7 22 35 / 0.44);
+
+  dt {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #8fb6d0;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 0.87rem;
+    color: #e5f4ff;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  &--warning dd { color: #ffd37a; }
+  &--meta    dt,
+  &--meta    dd { opacity: 0.72; font-size: 0.8rem; }
+}
+
+.result-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+@media (max-width: 720px) {
+  .result-card {
+    padding: 1rem;
+  }
+
+  .detail-row {
+    min-width: 100%;
+  }
 }
