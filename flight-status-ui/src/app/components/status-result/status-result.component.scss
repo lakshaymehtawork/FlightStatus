@@ -1,0 +1,105 @@
+.result-card {
+  background: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  border-left-width: 5px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+
+  &.status--on-time    { border-left-color: #22c55e; }
+  &.status--delayed    { border-left-color: #f59e0b; }
+  &.status--cancelled  { border-left-color: #ef4444; }
+  &.status--diverted   { border-left-color: #ef4444; }
+  &.status--unknown    { border-left-color: #9ca3af; }
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.flight-identity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.flight-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.flight-date {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+
+  &.status--on-time    { background: #22c55e; }
+  &.status--delayed    { background: #f59e0b; }
+  &.status--cancelled  { background: #ef4444; }
+  &.status--diverted   { background: #ef4444; }
+  &.status--unknown    { background: #9ca3af; }
+}
+
+.result-message {
+  margin: 0 0 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.result-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+
+.detail-row {
+  display: contents;
+
+  dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  &--warning dd { color: #f59e0b; }
+  &--meta    dt,
+  &--meta    dd { opacity: 0.65; font-size: 0.8rem; }
+}
+
+/* Re-enable grid layout by wrapping each row */
+.result-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 140px;
+}

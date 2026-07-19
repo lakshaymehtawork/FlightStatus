@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="df883243-842a-4d91-bc3b-2a828b950b9b" name="Lakshay@LAKSHAY-ASUS 2026-07-19 22:39:08" runUser="Lakshay-Asus\Lakshay" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-07-19T22:39:08.6218077+05:30" queuing="2026-07-19T22:39:08.6218082+05:30" start="2026-07-19T22:39:06.5043687+05:30" finish="2026-07-19T22:39:09.5955108+05:30" />
+  <TestSettings name="default" id="582869e4-6dd0-4076-9a38-610baadf3d83">
+    <Deployment runDeploymentRoot="Lakshay_LAKSHAY-ASUS_2026-07-19_22_39_08" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="3437955e-bc90-4246-80ca-5aeabab33cdc" testId="f158bab9-d43c-e634-1019-d3d4772e758d" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SameInputTwice_IsDeterministic" computerName="LAKSHAY-ASUS" duration="00:00:00.0066814" startTime="2026-07-19T22:39:08.3685260+05:30" endTime="2026-07-19T22:39:08.3685975+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3437955e-bc90-4246-80ca-5aeabab33cdc" />
+    <UnitTestResult executionId="8d993aa3-c04a-4971-a8cd-4376cbf212f8" testId="0c99beb1-b68a-fc4b-9218-60ad2e8ce1b4" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_UnknownFlight_ReturnsNull" computerName="LAKSHAY-ASUS" duration="00:00:00.0007926" startTime="2026-07-19T22:39:08.3676997+05:30" endTime="2026-07-19T22:39:08.3678238+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d993aa3-c04a-4971-a8cd-4376cbf212f8" />
+    <UnitTestResult executionId="ecac374c-5a90-4728-91cb-706b0ea812de" testId="1df55c90-1fd9-823d-f94d-d2ab924334a3" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_BothProvidersRespond_PrefersHigherLastUpdatedUtc" computerName="LAKSHAY-ASUS" duration="00:00:00.0051523" startTime="2026-07-19T22:39:09.0249490+05:30" endTime="2026-07-19T22:39:09.0307803+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ecac374c-5a90-4728-91cb-706b0ea812de" />
+    <UnitTestResult executionId="970129ac-1bae-4458-9ca9-5b42b1a23ce7" testId="68d57b72-085d-517f-57ce-c568301acde6" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_OneProviderThrows_UsesOtherProviderResult" computerName="LAKSHAY-ASUS" duration="00:00:00.0015188" startTime="2026-07-19T22:39:09.0232995+05:30" endTime="2026-07-19T22:39:09.0245841+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="970129ac-1bae-4458-9ca9-5b42b1a23ce7" />
+    <UnitTestResult executionId="d8b48878-2bcc-4093-920c-f90533066c8c" testId="af7e32a2-a16f-129b-acbc-1f7381e28002" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SameInputTwice_IsDeterministic" computerName="LAKSHAY-ASUS" duration="00:00:00.0015590" startTime="2026-07-19T22:39:08.5803868+05:30" endTime="2026-07-19T22:39:08.5818031+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8b48878-2bcc-4093-920c-f90533066c8c" />
+    <UnitTestResult executionId="ac13337b-d689-4d0b-ba83-e56536ac9a53" testId="081e3c62-9976-b5a7-5d6e-a451df2e9675" testName="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_NoProviderData_Returns200WithUnknown" computerName="LAKSHAY-ASUS" duration="00:00:00.0025174" startTime="2026-07-19T22:39:09.4957239+05:30" endTime="2026-07-19T22:39:09.4983981+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac13337b-d689-4d0b-ba83-e56536ac9a53" />
+    <UnitTestResult executionId="a2d5d53c-5843-474b-9708-ba35adf7d293" testId="a9f8e383-ab4f-7d74-1617-021988af6b8a" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR400_MapsDiverted" computerName="LAKSHAY-ASUS" duration="00:00:00.0006306" startTime="2026-07-19T22:39:08.3663995+05:30" endTime="2026-07-19T22:39:08.3665640+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a2d5d53c-5843-474b-9708-ba35adf7d293" />
+    <UnitTestResult executionId="73c2ad24-1dbd-47f7-998a-8340918aaa2a" testId="30be25d6-c6ce-aa4d-d327-8e473db503dd" testName="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_MissingFlightNumber_Returns400" computerName="LAKSHAY-ASUS" duration="00:00:00.0071395" startTime="2026-07-19T22:39:09.4811229+05:30" endTime="2026-07-19T22:39:09.4898186+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="73c2ad24-1dbd-47f7-998a-8340918aaa2a" />
+    <UnitTestResult executionId="632b3b5d-d356-4f3c-85cb-1773eff6cea1" testId="2116169d-c649-0431-6301-d685ac6a1fac" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_WinnerHasNullDelayReason_MessageStillNonEmpty" computerName="LAKSHAY-ASUS" duration="00:00:00.0014788" startTime="2026-07-19T22:39:09.0199851+05:30" endTime="2026-07-19T22:39:09.0213356+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="632b3b5d-d356-4f3c-85cb-1773eff6cea1" />
+    <UnitTestResult executionId="b8359daa-5050-445e-b125-4599e22579da" testId="8906f5c1-8410-6d6c-d041-e808610b0919" testName="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_ValidRequest_Returns200WithExpectedBody" computerName="LAKSHAY-ASUS" duration="00:00:01.5229995" startTime="2026-07-19T22:39:07.9260876+05:30" endTime="2026-07-19T22:39:09.4537525+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b8359daa-5050-445e-b125-4599e22579da" />
+    <UnitTestResult executionId="90fd6102-91a1-4320-84f0-8936019ad8d8" testId="82f73dd7-5f13-e332-ab46-a11cad09ad31" testName="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_InvalidDateFormat_Returns400" computerName="LAKSHAY-ASUS" duration="00:00:00.0238339" startTime="2026-07-19T22:39:09.4564667+05:30" endTime="2026-07-19T22:39:09.4807747+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90fd6102-91a1-4320-84f0-8936019ad8d8" />
+    <UnitTestResult executionId="9cac16f7-9254-44d2-8cda-aa0ef829e759" testId="b4bbb541-1049-2a1e-ce3a-aa2af3a09254" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR600_MapsLateToDelayed" computerName="LAKSHAY-ASUS" duration="00:00:00.0006057" startTime="2026-07-19T22:39:08.5780231+05:30" endTime="2026-07-19T22:39:08.5781122+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9cac16f7-9254-44d2-8cda-aa0ef829e759" />
+    <UnitTestResult executionId="7ebbe6fd-674e-423c-a4e3-2843819652e2" testId="bf61b7ce-c812-7ef4-1d7b-f1960b83a32a" testName="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_MissingDate_Returns400" computerName="LAKSHAY-ASUS" duration="00:00:00.0051451" startTime="2026-07-19T22:39:09.4908645+05:30" endTime="2026-07-19T22:39:09.4954970+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ebbe6fd-674e-423c-a4e3-2843819652e2" />
+    <UnitTestResult executionId="00b0f4a4-651e-490e-8984-831974a5dfe9" testId="b6539002-a10a-df1b-ba93-c5d6577a6d2f" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" computerName="LAKSHAY-ASUS" duration="00:00:00.4179414" startTime="2026-07-19T22:39:07.9258382+05:30" endTime="2026-07-19T22:39:08.3502764+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="00b0f4a4-651e-490e-8984-831974a5dfe9" />
+    <UnitTestResult executionId="12370e6a-0051-4ce7-9183-b4ab84530f84" testId="80c19eda-5da6-0065-2564-5a08402bea97" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_UnknownFlight_ReturnsNull" computerName="LAKSHAY-ASUS" duration="00:00:00.0007523" startTime="2026-07-19T22:39:08.5799539+05:30" endTime="2026-07-19T22:39:08.5800763+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12370e6a-0051-4ce7-9183-b4ab84530f84" />
+    <UnitTestResult executionId="d5cf047f-18c5-4459-8ec1-bd9a4fb9f1bc" testId="e069170b-8e6c-a456-b879-274fcf2b45c8" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR200_MapsDelayedAndKeepsDelayReason" computerName="LAKSHAY-ASUS" duration="00:00:00.6081578" startTime="2026-07-19T22:39:07.9259521+05:30" endTime="2026-07-19T22:39:08.5380886+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5cf047f-18c5-4459-8ec1-bd9a4fb9f1bc" />
+    <UnitTestResult executionId="59f78433-944d-4f2a-878f-33744bf5831e" testId="9a6d1a90-512a-7df1-aebc-520421a3e38b" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_OnlyOneProviderResponds_UsesThatResult" computerName="LAKSHAY-ASUS" duration="00:00:00.0016120" startTime="2026-07-19T22:39:09.0311151+05:30" endTime="2026-07-19T22:39:09.0315412+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59f78433-944d-4f2a-878f-33744bf5831e" />
+    <UnitTestResult executionId="501c8552-8126-45e4-aed7-91bfc6fe7530" testId="4358b6b7-31d9-4f57-5656-3e3f6338a979" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR100_MapsOnScheduleToOnTime" computerName="LAKSHAY-ASUS" duration="00:00:00.0006907" startTime="2026-07-19T22:39:08.5821061+05:30" endTime="2026-07-19T22:39:08.5822066+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="501c8552-8126-45e4-aed7-91bfc6fe7530" />
+    <UnitTestResult executionId="f1b3a481-5817-4015-bbd6-585e3551e292" testId="8634e0b1-803a-f14f-d153-edea06cb2e1b" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR300_MapsCancelled" computerName="LAKSHAY-ASUS" duration="00:00:00.0007034" startTime="2026-07-19T22:39:08.3681748+05:30" endTime="2026-07-19T22:39:08.3683091+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1b3a481-5817-4015-bbd6-585e3551e292" />
+    <UnitTestResult executionId="ee450be2-5913-4a06-9f3f-d79943f4838d" testId="e4aff004-a3ab-0679-6f79-df983433e8ce" testName="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR100_MapsOnTime" computerName="LAKSHAY-ASUS" duration="00:00:00.1781478" startTime="2026-07-19T22:39:08.3687685+05:30" endTime="2026-07-19T22:39:08.5774911+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee450be2-5913-4a06-9f3f-d79943f4838d" />
+    <UnitTestResult executionId="a8a81671-58af-442c-a419-a09f1b6aab5a" testId="10808639-428c-6bc5-5b89-590afc09f913" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_BothProvidersSameTimestamp_PrefersAeroTrackTieBreak" computerName="LAKSHAY-ASUS" duration="00:00:00.0060819" startTime="2026-07-19T22:39:09.0171911+05:30" endTime="2026-07-19T22:39:09.0197500+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8a81671-58af-442c-a419-a09f1b6aab5a" />
+    <UnitTestResult executionId="3509db5c-d4d6-4249-9e1f-ee1ddadc22e4" testId="6b801173-9364-9f8e-ac73-6b501476d207" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" computerName="LAKSHAY-ASUS" duration="00:00:00.0008173" startTime="2026-07-19T22:39:08.5786331+05:30" endTime="2026-07-19T22:39:08.5795974+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3509db5c-d4d6-4249-9e1f-ee1ddadc22e4" />
+    <UnitTestResult executionId="74c5dcd1-2594-401f-9046-2290c37342e5" testId="a32d77a1-b127-c0af-8c23-c18fbb2167e7" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR400_MapsDiverted" computerName="LAKSHAY-ASUS" duration="00:00:00.0006935" startTime="2026-07-19T22:39:08.5783946+05:30" endTime="2026-07-19T22:39:08.5784644+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74c5dcd1-2594-401f-9046-2290c37342e5" />
+    <UnitTestResult executionId="3dfd6e14-a81e-40d5-95b7-77b56d34e04d" testId="8aff8679-9fd8-697e-ba16-5da09cd6d14b" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_NoProvidersRespond_ReturnsUnknownWithMessage" computerName="LAKSHAY-ASUS" duration="00:00:01.0836708" startTime="2026-07-19T22:39:07.9234026+05:30" endTime="2026-07-19T22:39:09.0136009+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3dfd6e14-a81e-40d5-95b7-77b56d34e04d" />
+    <UnitTestResult executionId="8d33b6c2-2028-4f82-8349-447a593a3822" testId="8e33512a-d12a-37de-8caa-31c537f31a1b" testName="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_AllProvidersThrow_ReturnsUnknown" computerName="LAKSHAY-ASUS" duration="00:00:00.0015155" startTime="2026-07-19T22:39:09.0217159+05:30" endTime="2026-07-19T22:39:09.0229436+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d33b6c2-2028-4f82-8349-447a593a3822" />
+    <UnitTestResult executionId="6b64fd73-94b0-462a-bc80-c4e3747f3188" testId="635823a5-bcbd-46c5-aa86-62838396aca8" testName="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR700_MapsCanceledToCancelledAndClearsDelayReason" computerName="LAKSHAY-ASUS" duration="00:00:00.0006845" startTime="2026-07-19T22:39:08.5779166+05:30" endTime="2026-07-19T22:39:08.5782339+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6b64fd73-94b0-462a-bc80-c4e3747f3188" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_WinnerHasNullDelayReason_MessageStillNonEmpty" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="2116169d-c649-0431-6301-d685ac6a1fac">
+      <Execution id="632b3b5d-d356-4f3c-85cb-1773eff6cea1" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_WinnerHasNullDelayReason_MessageStillNonEmpty" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SameInputTwice_IsDeterministic" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="af7e32a2-a16f-129b-acbc-1f7381e28002">
+      <Execution id="d8b48878-2bcc-4093-920c-f90533066c8c" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_SameInputTwice_IsDeterministic" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_OnlyOneProviderResponds_UsesThatResult" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="9a6d1a90-512a-7df1-aebc-520421a3e38b">
+      <Execution id="59f78433-944d-4f2a-878f-33744bf5831e" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_OnlyOneProviderResponds_UsesThatResult" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_NoProviderData_Returns200WithUnknown" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="081e3c62-9976-b5a7-5d6e-a451df2e9675">
+      <Execution id="ac13337b-d689-4d0b-ba83-e56536ac9a53" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Integration.FlightStatusEndpointTests" name="GetFlightStatus_NoProviderData_Returns200WithUnknown" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR200_MapsDelayedAndKeepsDelayReason" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="e069170b-8e6c-a456-b879-274fcf2b45c8">
+      <Execution id="d5cf047f-18c5-4459-8ec1-bd9a4fb9f1bc" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_SR200_MapsDelayedAndKeepsDelayReason" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_BothProvidersSameTimestamp_PrefersAeroTrackTieBreak" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="10808639-428c-6bc5-5b89-590afc09f913">
+      <Execution id="a8a81671-58af-442c-a419-a09f1b6aab5a" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_BothProvidersSameTimestamp_PrefersAeroTrackTieBreak" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR700_MapsCanceledToCancelledAndClearsDelayReason" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="635823a5-bcbd-46c5-aa86-62838396aca8">
+      <Execution id="6b64fd73-94b0-462a-bc80-c4e3747f3188" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_SR700_MapsCanceledToCancelledAndClearsDelayReason" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_UnknownFlight_ReturnsNull" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="0c99beb1-b68a-fc4b-9218-60ad2e8ce1b4">
+      <Execution id="8d993aa3-c04a-4971-a8cd-4376cbf212f8" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_UnknownFlight_ReturnsNull" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_MissingDate_Returns400" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="bf61b7ce-c812-7ef4-1d7b-f1960b83a32a">
+      <Execution id="7ebbe6fd-674e-423c-a4e3-2843819652e2" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Integration.FlightStatusEndpointTests" name="GetFlightStatus_MissingDate_Returns400" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR100_MapsOnTime" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="e4aff004-a3ab-0679-6f79-df983433e8ce">
+      <Execution id="ee450be2-5913-4a06-9f3f-d79943f4838d" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_SR100_MapsOnTime" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR300_MapsCancelled" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="8634e0b1-803a-f14f-d153-edea06cb2e1b">
+      <Execution id="f1b3a481-5817-4015-bbd6-585e3551e292" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_SR300_MapsCancelled" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_OneProviderThrows_UsesOtherProviderResult" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="68d57b72-085d-517f-57ce-c568301acde6">
+      <Execution id="970129ac-1bae-4458-9ca9-5b42b1a23ce7" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_OneProviderThrows_UsesOtherProviderResult" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_AllProvidersThrow_ReturnsUnknown" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="8e33512a-d12a-37de-8caa-31c537f31a1b">
+      <Execution id="8d33b6c2-2028-4f82-8349-447a593a3822" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_AllProvidersThrow_ReturnsUnknown" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_MissingFlightNumber_Returns400" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="30be25d6-c6ce-aa4d-d327-8e473db503dd">
+      <Execution id="73c2ad24-1dbd-47f7-998a-8340918aaa2a" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Integration.FlightStatusEndpointTests" name="GetFlightStatus_MissingFlightNumber_Returns400" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR100_MapsOnScheduleToOnTime" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="4358b6b7-31d9-4f57-5656-3e3f6338a979">
+      <Execution id="501c8552-8126-45e4-aed7-91bfc6fe7530" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_SR100_MapsOnScheduleToOnTime" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_BothProvidersRespond_PrefersHigherLastUpdatedUtc" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="1df55c90-1fd9-823d-f94d-d2ab924334a3">
+      <Execution id="ecac374c-5a90-4728-91cb-706b0ea812de" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_BothProvidersRespond_PrefersHigherLastUpdatedUtc" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR400_MapsDiverted" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="a9f8e383-ab4f-7d74-1617-021988af6b8a">
+      <Execution id="a2d5d53c-5843-474b-9708-ba35adf7d293" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_SR400_MapsDiverted" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_SR400_MapsDiverted" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="a32d77a1-b127-c0af-8c23-c18fbb2167e7">
+      <Execution id="74c5dcd1-2594-401f-9046-2290c37342e5" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_SR400_MapsDiverted" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests.GetFlightStatusAsync_NoProvidersRespond_ReturnsUnknownWithMessage" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="8aff8679-9fd8-697e-ba16-5da09cd6d14b">
+      <Execution id="3dfd6e14-a81e-40d5-95b7-77b56d34e04d" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Application.FlightStatusServiceTests" name="GetFlightStatusAsync_NoProvidersRespond_ReturnsUnknownWithMessage" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_InvalidDateFormat_Returns400" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="82f73dd7-5f13-e332-ab46-a11cad09ad31">
+      <Execution id="90fd6102-91a1-4320-84f0-8936019ad8d8" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Integration.FlightStatusEndpointTests" name="GetFlightStatus_InvalidDateFormat_Returns400" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="b6539002-a10a-df1b-ba93-c5d6577a6d2f">
+      <Execution id="00b0f4a4-651e-490e-8984-831974a5dfe9" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SameInputTwice_IsDeterministic" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="f158bab9-d43c-e634-1019-d3d4772e758d">
+      <Execution id="3437955e-bc90-4246-80ca-5aeabab33cdc" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_SameInputTwice_IsDeterministic" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests.GetStatusAsync_SR600_MapsLateToDelayed" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="b4bbb541-1049-2a1e-ce3a-aa2af3a09254">
+      <Execution id="9cac16f7-9254-44d2-8cda-aa0ef829e759" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.QuickFlightStubProviderTests" name="GetStatusAsync_SR600_MapsLateToDelayed" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="6b801173-9364-9f8e-ac73-6b501476d207">
+      <Execution id="3509db5c-d4d6-4249-9e1f-ee1ddadc22e4" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_FlightNumberCaseInsensitive_ReturnsMatch" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Integration.FlightStatusEndpointTests.GetFlightStatus_ValidRequest_Returns200WithExpectedBody" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="8906f5c1-8410-6d6c-d041-e808610b0919">
+      <Execution id="b8359daa-5050-445e-b125-4599e22579da" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Integration.FlightStatusEndpointTests" name="GetFlightStatus_ValidRequest_Returns200WithExpectedBody" />
+    </UnitTest>
+    <UnitTest name="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests.GetStatusAsync_UnknownFlight_ReturnsNull" storage="d:\epam\submissions\lakshay\usecase\flightstatus.tests\bin\debug\net10.0\flightstatus.tests.dll" id="80c19eda-5da6-0065-2564-5a08402bea97">
+      <Execution id="12370e6a-0051-4ce7-9183-b4ab84530f84" />
+      <TestMethod codeBase="d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Tests\bin\Debug\net10.0\FlightStatus.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="FlightStatus.Tests.Unit.Infrastructure.AeroTrackStubProviderTests" name="GetStatusAsync_UnknownFlight_ReturnsNull" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f158bab9-d43c-e634-1019-d3d4772e758d" executionId="3437955e-bc90-4246-80ca-5aeabab33cdc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c99beb1-b68a-fc4b-9218-60ad2e8ce1b4" executionId="8d993aa3-c04a-4971-a8cd-4376cbf212f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1df55c90-1fd9-823d-f94d-d2ab924334a3" executionId="ecac374c-5a90-4728-91cb-706b0ea812de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68d57b72-085d-517f-57ce-c568301acde6" executionId="970129ac-1bae-4458-9ca9-5b42b1a23ce7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af7e32a2-a16f-129b-acbc-1f7381e28002" executionId="d8b48878-2bcc-4093-920c-f90533066c8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="081e3c62-9976-b5a7-5d6e-a451df2e9675" executionId="ac13337b-d689-4d0b-ba83-e56536ac9a53" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9f8e383-ab4f-7d74-1617-021988af6b8a" executionId="a2d5d53c-5843-474b-9708-ba35adf7d293" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30be25d6-c6ce-aa4d-d327-8e473db503dd" executionId="73c2ad24-1dbd-47f7-998a-8340918aaa2a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2116169d-c649-0431-6301-d685ac6a1fac" executionId="632b3b5d-d356-4f3c-85cb-1773eff6cea1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8906f5c1-8410-6d6c-d041-e808610b0919" executionId="b8359daa-5050-445e-b125-4599e22579da" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="82f73dd7-5f13-e332-ab46-a11cad09ad31" executionId="90fd6102-91a1-4320-84f0-8936019ad8d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b4bbb541-1049-2a1e-ce3a-aa2af3a09254" executionId="9cac16f7-9254-44d2-8cda-aa0ef829e759" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf61b7ce-c812-7ef4-1d7b-f1960b83a32a" executionId="7ebbe6fd-674e-423c-a4e3-2843819652e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6539002-a10a-df1b-ba93-c5d6577a6d2f" executionId="00b0f4a4-651e-490e-8984-831974a5dfe9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80c19eda-5da6-0065-2564-5a08402bea97" executionId="12370e6a-0051-4ce7-9183-b4ab84530f84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e069170b-8e6c-a456-b879-274fcf2b45c8" executionId="d5cf047f-18c5-4459-8ec1-bd9a4fb9f1bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a6d1a90-512a-7df1-aebc-520421a3e38b" executionId="59f78433-944d-4f2a-878f-33744bf5831e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4358b6b7-31d9-4f57-5656-3e3f6338a979" executionId="501c8552-8126-45e4-aed7-91bfc6fe7530" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8634e0b1-803a-f14f-d153-edea06cb2e1b" executionId="f1b3a481-5817-4015-bbd6-585e3551e292" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e4aff004-a3ab-0679-6f79-df983433e8ce" executionId="ee450be2-5913-4a06-9f3f-d79943f4838d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10808639-428c-6bc5-5b89-590afc09f913" executionId="a8a81671-58af-442c-a419-a09f1b6aab5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6b801173-9364-9f8e-ac73-6b501476d207" executionId="3509db5c-d4d6-4249-9e1f-ee1ddadc22e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a32d77a1-b127-c0af-8c23-c18fbb2167e7" executionId="74c5dcd1-2594-401f-9046-2290c37342e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8aff8679-9fd8-697e-ba16-5da09cd6d14b" executionId="3dfd6e14-a81e-40d5-95b7-77b56d34e04d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e33512a-d12a-37de-8caa-31c537f31a1b" executionId="8d33b6c2-2028-4f82-8349-447a593a3822" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="635823a5-bcbd-46c5-aa86-62838396aca8" executionId="6b64fd73-94b0-462a-bc80-c4e3747f3188" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="26" executed="26" passed="26" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.10)&#xD;
+[xUnit.net 00:00:00.56]   Discovering: FlightStatus.Tests&#xD;
+[xUnit.net 00:00:00.64]   Discovered:  FlightStatus.Tests&#xD;
+[xUnit.net 00:00:00.68]   Starting:    FlightStatus.Tests&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: d:\EPAM\submissions\Lakshay\UseCase\FlightStatus.Api&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Program[0]&#xD;
+      Request received: FlightNumber=SR100 Date=2026-07-20&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Provider result: ProviderName=AeroTrack Status=OnTime&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Provider result: ProviderName=QuickFlight Status=OnTime&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Final result: ProviderUsed=AeroTrack Status=OnTime FlightNumber=SR100 Date=07/20/2026&#xD;
+info: Program[0]&#xD;
+      Request received: FlightNumber=SR100 Date=2026/07/20&#xD;
+info: Program[0]&#xD;
+      Request received: FlightNumber=(null) Date=2026-07-20&#xD;
+info: Program[0]&#xD;
+      Request received: FlightNumber=SR100 Date=(null)&#xD;
+info: Program[0]&#xD;
+      Request received: FlightNumber=SR500 Date=2026-07-20&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Provider result: ProviderName=AeroTrack Status=null&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Provider result: ProviderName=QuickFlight Status=null&#xD;
+info: FlightStatus.Api.Application.Services.FlightStatusService[0]&#xD;
+      Final result: Status=Unknown ProviderUsed=none FlightNumber=SR500 Date=07/20/2026&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+[xUnit.net 00:00:02.31]   Finished:    FlightStatus.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -1,0 +1,70 @@
+@if (result(); as r) {
+  <div class="result-card" [ngClass]="statusClass(r.status)">
+    <div class="result-header">
+      <div class="flight-identity">
+        <span class="flight-number">{{ r.flightNumber }}</span>
+        <span class="flight-date">{{ r.date }}</span>
+      </div>
+      <span class="status-badge" [ngClass]="statusClass(r.status)">{{ r.status }}</span>
+    </div>
+
+    <p class="result-message">{{ r.message }}</p>
+
+    <dl class="result-details">
+      @if (r.providerUsed) {
+        <div class="detail-row">
+          <dt>Provider</dt>
+          <dd>{{ r.providerUsed }}</dd>
+        </div>
+      }
+      @if (r.scheduledDepartureUtc) {
+        <div class="detail-row">
+          <dt>Scheduled Departure</dt>
+          <dd>{{ r.scheduledDepartureUtc | date:'medium' }}</dd>
+        </div>
+      }
+      @if (r.scheduledArrivalUtc) {
+        <div class="detail-row">
+          <dt>Scheduled Arrival</dt>
+          <dd>{{ r.scheduledArrivalUtc | date:'medium' }}</dd>
+        </div>
+      }
+      @if (r.actualDepartureUtc) {
+        <div class="detail-row detail-row--highlight">
+          <dt>Actual Departure</dt>
+          <dd>{{ r.actualDepartureUtc | date:'medium' }}</dd>
+        </div>
+      }
+      @if (r.actualArrivalUtc) {
+        <div class="detail-row detail-row--highlight">
+          <dt>Actual Arrival</dt>
+          <dd>{{ r.actualArrivalUtc | date:'medium' }}</dd>
+        </div>
+      }
+      @if (r.terminal) {
+        <div class="detail-row">
+          <dt>Terminal</dt>
+          <dd>{{ r.terminal }}</dd>
+        </div>
+      }
+      @if (r.gate) {
+        <div class="detail-row">
+          <dt>Gate</dt>
+          <dd>{{ r.gate }}</dd>
+        </div>
+      }
+      @if (r.delayReason) {
+        <div class="detail-row detail-row--warning">
+          <dt>Delay Reason</dt>
+          <dd>{{ r.delayReason }}</dd>
+        </div>
+      }
+      @if (r.lastUpdatedUtc) {
+        <div class="detail-row detail-row--meta">
+          <dt>Last Updated</dt>
+          <dd>{{ r.lastUpdatedUtc | date:'medium' }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+}

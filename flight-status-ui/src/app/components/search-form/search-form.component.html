@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate aria-label="Flight status search">
+  <div class="form-row">
+    <div class="form-field">
+      <label for="flightNumber">Flight Number</label>
+      <input
+        id="flightNumber"
+        type="text"
+        formControlName="flightNumber"
+        placeholder="e.g. SR100"
+        autocomplete="off"
+        aria-required="true"
+        [attr.aria-invalid]="flightNumberControl.invalid && flightNumberControl.touched"
+      />
+      <div class="field-errors" aria-live="polite">
+        @if (flightNumberControl.touched && flightNumberControl.hasError('required')) {
+          <span class="field-error" role="alert">Flight number is required.</span>
+        } @else if (flightNumberControl.touched && flightNumberControl.hasError('minlength')) {
+          <span class="field-error" role="alert">Flight number must be at least 2 characters.</span>
+        }
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="date">Date</label>
+      <input
+        id="date"
+        type="date"
+        formControlName="date"
+        aria-required="true"
+        [attr.aria-invalid]="dateControl.invalid && dateControl.touched"
+      />
+      <div class="field-errors" aria-live="polite">
+        @if (dateControl.touched && dateControl.hasError('required')) {
+          <span class="field-error" role="alert">Date is required.</span>
+        }
+      </div>
+    </div>
+
+    <div class="form-field form-field--action">
+      <button type="submit" class="btn-search" [disabled]="isLoading()">
+        @if (isLoading()) {
+          <span class="btn-spinner" aria-hidden="true"></span>
+          Searching…
+        } @else {
+          Search
+        }
+      </button>
+    </div>
+  </div>
+</form>

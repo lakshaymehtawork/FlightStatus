@@ -1,0 +1,6 @@
+.git.backup-*
+.vs/
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
