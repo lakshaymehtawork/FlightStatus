@@ -45,7 +45,12 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference(); // Scalar UI at /scalar/v1
 }
 
-app.UseHttpsRedirection();
+// Avoid HTTP->HTTPS redirect during local Angular dev calls, which can trigger
+// browser CORS failures after a 307 redirect.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 // ── Global exception handler → ApiError 500 ──────────────────────────────────
 app.UseExceptionHandler(errorApp =>

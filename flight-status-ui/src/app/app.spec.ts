@@ -4,20 +4,18 @@ import { App } from './app';
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [App]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('create_AppRoot_RendersFeatureContainer', () => {
     const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    fixture.detectChanges();
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, flight-status-ui');
+    const app = fixture.componentInstance;
+    const html = fixture.nativeElement as HTMLElement;
+
+    expect(app).toBeTruthy();
+    expect(html.querySelector('app-flight-status-page')).toBeTruthy();
   });
 });
