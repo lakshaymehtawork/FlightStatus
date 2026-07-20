@@ -9,10 +9,10 @@ SkyRoute requires a reliable way for support agents to look up flight status fro
 ## 3. Scope
 ### 3.1 In-Scope
 - Build an end-to-end Flight Status lookup flow for one scenario: input flight number + date, output unified status result.
-- Implement backend endpoint `GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}` using .NET Minimal API.
+- Implement backend endpoint `GET /flights/status?flightNumber={code}&date={yyyy-MM-dd}` using .NET Minimal API.
 - Integrate exactly two deterministic stub providers: AeroTrack and QuickFlight.
 - Normalize provider-specific statuses into a unified enum: OnTime, Delayed, Cancelled, Diverted, Unknown.
-- Treat date as a first-class lookup input by validating the format, preserving it through the request/response flow, and applying a clearly documented minimum supported date guard instead of hidden date filters.
+- Treat date as a first-class lookup input by validating the format, preserving it through the request/response flow, and avoiding hidden min/max date windows or other undocumented date filters.
 - Apply provider-result selection rule using later `lastUpdatedUtc` when both providers respond.
 - Return unified `FlightStatusResult` from backend.
 - Implement basic backend input validation for required flight number and date.
@@ -70,7 +70,7 @@ SkyRoute requires a reliable way for support agents to look up flight status fro
 - SRC-032: "Follow any provided naming conventions and ensure your code is well-documented and professional."
 - SRC-033: "Each dimension will be scored as pass/partial/fail with written feedback."
 - SRC-034: "Backend (.NET Minimal API)."
-- SRC-035: "GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}."
+- SRC-035: "GET /flights/status?flightNumber={code}&date={yyyy-MM-dd}."
 - SRC-036: "Calls both providers (use stubs - no real APIs)."
 - SRC-037: "Normalises responses."
 - SRC-038: "Returns unified FlightStatusResult."
@@ -110,7 +110,7 @@ SkyRoute requires a reliable way for support agents to look up flight status fro
 
 ## 7. Functional Requirements
 - FR-001: The system shall accept two user inputs for lookup: `flightNumber` and `date`. Source: SRC-009, SRC-043.
-- FR-002: The backend shall expose HTTP GET endpoint `GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}`. Source: SRC-035.
+- FR-002: The backend shall expose HTTP GET endpoint `GET /flights/status?flightNumber={code}&date={yyyy-MM-dd}`. Source: SRC-035.
 - FR-003: The backend shall invoke both AeroTrack and QuickFlight providers for each valid request. Source: SRC-010, SRC-036.
 - FR-004: The backend shall implement provider abstraction via `IFlightStatusProvider` with exactly two concrete stub implementations for AeroTrack and QuickFlight. Source: SRC-039.
 - FR-005: Provider implementations shall be injected through dependency injection and endpoint code shall not reference concrete provider classes directly. Source: SRC-040.
@@ -150,11 +150,11 @@ SkyRoute requires a reliable way for support agents to look up flight status fro
 - NFR-009 (Version Control Gate): `spec.md` shall be committed before any implementation files; commit timestamp order must prove this. Source: SRC-056.
 
 ## 9. Assumptions & Constraints (Gap Analysis)
-- ASSUMPTION-001: Date input uses calendar date only in `DD-MM-YYYY`, interpreted in system local timezone for provider-query simulation.
+- ASSUMPTION-001: Date input uses calendar date only in `yyyy-MM-dd`, interpreted in system local timezone for provider-query simulation.
 - ASSUMPTION-002: Flight number format validation is minimal (non-empty string); strict IATA/ICAO regex validation is out of scope unless later specified.
 - ASSUMPTION-003: Missing means null, empty, or whitespace for `flightNumber`; missing means null/empty query value for `date`.
-- ASSUMPTION-004: Invalid `date` format (non-`DD-MM-YYYY`) returns HTTP 400 with a descriptive error payload.
-- ASSUMPTION-005: A minimum supported date restriction is applied; valid `DD-MM-YYYY` values earlier than `01-01-1900` are rejected as unsupported.
+- ASSUMPTION-004: Invalid `date` format (non-`yyyy-MM-dd`) returns HTTP 400 with a descriptive error payload.
+- ASSUMPTION-005: No date range restriction is applied; any valid `yyyy-MM-dd` value is accepted as long as it passes format validation.
 - ASSUMPTION-006: Stub providers use flight number as the deterministic lookup key and ignore date for matching, while still echoing the validated date through the result model.
 - ASSUMPTION-007: Provider calls are executed concurrently to minimize latency and satisfy graceful-degradation expectations.
 - ASSUMPTION-008: Each provider call has independent failure handling; exceptions/timeouts from one provider must not fail the overall request when another provider succeeds.

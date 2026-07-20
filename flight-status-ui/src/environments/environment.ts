@@ -1,6 +1,4 @@
-import { baseEnvironment } from './environment.base';
-
 export const environment = {
-  ...baseEnvironment,
-  production: true
+  production: true,
+  apiBaseUrl: 'https://flightstatus-orvg.onrender.com'
 };

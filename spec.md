@@ -41,9 +41,9 @@ Represents a lookup request.
 | Field | Type | Nullable | Meaning | Notes |
 |---|---|---|---|---|
 | flightNumber | string | No | Flight code entered by support agent | Required input |
-| date | date-only string (DD-MM-YYYY) | No | Flight operation date | Required input |
+| date | date-only string (yyyy-MM-dd) | No | Flight operation date | Required input |
 
-Date is validated for required presence, DD-MM-YYYY format, and a minimum supported date of 01-01-1900. Stub providers do not use date as a matching key.
+Date is validated for required presence and yyyy-MM-dd format only. No min/max range filter is applied, and stub providers do not use date as a matching key.
 
 #### 3.1.2 FlightStatusResult
 Represents normalized API response.
@@ -51,7 +51,7 @@ Represents normalized API response.
 | Field | Type | Nullable | Meaning | Notes |
 |---|---|---|---|---|
 | flightNumber | string | No | Echo of validated request flight number | Always populated |
-| date | date-only string (DD-MM-YYYY) | No | Echo of validated request date | Always populated |
+| date | date-only string (yyyy-MM-dd) | No | Echo of validated request date | Always populated |
 | status | UnifiedFlightStatus | No | Unified flight status | Always populated |
 | message | string | No | Human-readable result summary | Required for all responses |
 | providerUsed | string | Yes | Name of provider chosen for output | Null when no provider responded |
@@ -71,7 +71,7 @@ Intermediate normalized candidate returned by each provider implementation.
 |---|---|---|---|---|
 | providerName | string | No | Logical provider identifier | Expected values: AeroTrack, QuickFlight |
 | flightNumber | string | No | Provider-correlated flight number | Required |
-| date | date-only string (DD-MM-YYYY) | No | Provider-correlated date | Required |
+| date | date-only string (yyyy-MM-dd) | No | Provider-correlated date | Required |
 | status | UnifiedFlightStatus | No | Provider-normalized status | Required |
 | lastUpdatedUtc | datetime (ISO 8601 UTC) | No | Provider update timestamp for selection | Required |
 | scheduledDepartureUtc | datetime (ISO 8601 UTC) | Yes | Scheduled departure time | Null if unavailable |
@@ -206,8 +206,8 @@ Planned DI-backed implementations:
 - Path: /flights/status
 - Query parameters:
 	- flightNumber: string, required
-	- date: string, required, format DD-MM-YYYY
-	- The endpoint does not impose a business date window, but it rejects dates earlier than 01-01-1900.
+	- date: string, required, format yyyy-MM-dd
+	- The endpoint does not impose a date range window; any valid yyyy-MM-dd value is accepted.
 
 ### 5.2 Success Response
 - HTTP 200 OK
@@ -285,7 +285,7 @@ Example:
 	"code": "VALIDATION_ERROR",
 	"message": "Request validation failed.",
 	"details": [
-		"date must be in DD-MM-YYYY format."
+		"date must be in yyyy-MM-dd format."
 	],
 	"requestId": "00-8a5d..."
 }
@@ -306,8 +306,8 @@ Example:
 ### 6.1 Validation Rules
 - BR-RULE-001: Request is invalid when flightNumber is null, empty, or whitespace; API returns 400 with VALIDATION_ERROR.
 - BR-RULE-002: Request is invalid when date is missing; API returns 400 with VALIDATION_ERROR.
-- BR-RULE-003: Request is invalid when date does not match DD-MM-YYYY; API returns 400 with VALIDATION_ERROR.
-- BR-RULE-003A: Request is not invalidated by date age or calendar range as long as the format is DD-MM-YYYY and the date is on or after 01-01-1900.
+- BR-RULE-003: Request is invalid when date does not match yyyy-MM-dd; API returns 400 with VALIDATION_ERROR.
+- BR-RULE-003A: Request is not invalidated by date age or calendar range as long as the format is yyyy-MM-dd.
 
 ### 6.2 Status Normalization Rules
 
