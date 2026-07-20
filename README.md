@@ -16,8 +16,8 @@ The application accepts `flightNumber` and `date`, queries two deterministic stu
 |---|---:|---|---|
 | .NET SDK | 10.x | `dotnet --version` | https://dotnet.microsoft.com/en-us/download/dotnet/10.0 |
 | Node.js | 20.x | `node --version` | https://nodejs.org/en/download |
-| npm | 10.x | `npm --version` | https://nodejs.org/en/download |
-| Angular CLI | 22.x | `ng version` | https://angular.dev/tools/cli |
+| npm | 10.x+ | `npm --version` | https://nodejs.org/en/download |
+| Angular CLI | 22.x | `npx ng version` | https://angular.dev/tools/cli |
 | Git | 2.x+ | `git --version` | https://git-scm.com/downloads |
 
 ### Exact Setup Instructions (Clean Machine)
@@ -46,9 +46,11 @@ npm --version
 
 #### C. Install Angular CLI
 
+The frontend can use the locally installed CLI via `npx` after `npm install`.
+
 ```powershell
-npm install -g @angular/cli@latest
-ng version
+npm install -g @angular/cli@latest  # optional
+npx ng version
 ```
 
 Confirm Angular CLI major version is 22.x (or compatible with project dependencies).
@@ -131,17 +133,20 @@ Expected result:
 - No credentials, tokens, or secrets are required
 
 ### CORS
-- Backend allows `http://localhost:4200` via `FlightStatus.Api/appsettings.json`
+- Backend allows `http://localhost:4200` and `https://flight-status-sand.vercel.app` via `FlightStatus.Api/appsettings.json`
 
 ### API Base URL in Frontend
-The frontend service reads base URL from environment files:
+The frontend service reads the backend base URL from environment files.
+
 - `flight-status-ui/src/environments/environment.ts`
+  - `production: true`
+  - `apiBaseUrl: 'https://flightstatus-orvg.onrender.com'`
 - `flight-status-ui/src/environments/environment.development.ts`
+  - inherits from `flight-status-ui/src/environments/environment.base.ts`
+  - `apiBaseUrl: 'http://localhost:5184'`
 
-Current value:
-- `http://localhost:5184`
-
-To change backend endpoint, update `apiBaseUrl` in both files above.
+Local frontend development uses `http://localhost:5184` for the backend.
+To change the backend endpoint for local development, update `apiBaseUrl` in `environment.base.ts`.
 
 ---
 
@@ -153,23 +158,38 @@ Use UI at `http://localhost:4200` or run API calls directly.
 
 `GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}`
 
+API sample requests:
+
 PowerShell example:
 
 ```powershell
-Invoke-RestMethod -Method Get -Uri "http://localhost:5184/flights/status?flightNumber=SR100&date=2026-07-20" | ConvertTo-Json -Depth 6
+Invoke-RestMethod -Method Get -Uri "http://localhost:5184/flights/status?flightNumber=SR100&date=20-07-2026" | ConvertTo-Json -Depth 6
 ```
+
+curl example:
+
+```bash
+curl "http://localhost:5184/flights/status?flightNumber=SR100&date=20-07-2026"
+```
+
+### Frontend sample request
+
+1. Start the frontend with `npm start` from `flight-status-ui`.
+2. Open `http://localhost:4200` in your browser.
+3. Enter `SR100` for Flight Number and `20-07-2026` for Date.
+4. Submit the search and confirm the status card appears.
 
 ### Smoke Matrix
 
 | Scenario | Input (`flightNumber`, `date`) | Expected Unified Status | Notes |
 |---|---|---|---|
-| OnTime | `SR100`, `2026-07-20` | `OnTime` | Both providers respond, AeroTrack selected by later timestamp |
-| Delayed | `SR200`, `2026-07-20` | `Delayed` | AeroTrack-only response, delay reason present |
-| Cancelled | `SR300`, `2026-07-20` | `Cancelled` | QuickFlight-only response |
-| Diverted | `SR400`, `2026-07-20` | `Diverted` | Both respond; tie-break resolves to AeroTrack |
-| Unknown / not found | `SR500`, `2026-07-20` | `Unknown` | Neither provider returns data |
-| Partial-failure style (AeroTrack only) | `SR200`, `2026-07-20` | `Delayed` | QuickFlight absent |
-| Partial-failure style (QuickFlight only) | `SR800`, `2026-07-20` | `OnTime` | AeroTrack absent |
+| OnTime | `SR100`, `20-07-2026` | `OnTime` | Both providers respond, AeroTrack selected by later timestamp |
+| Delayed | `SR200`, `20-07-2026` | `Delayed` | AeroTrack-only response, delay reason present |
+| Cancelled | `SR300`, `20-07-2026` | `Cancelled` | QuickFlight-only response |
+| Diverted | `SR400`, `20-07-2026` | `Diverted` | Both respond; tie-break resolves to AeroTrack |
+| Unknown / not found | `SR500`, `20-07-2026` | `Unknown` | Neither provider returns data |
+| Partial-failure style (AeroTrack only) | `SR200`, `20-07-2026` | `Delayed` | QuickFlight absent |
+| Partial-failure style (QuickFlight only) | `SR800`, `20-07-2026` | `OnTime` | AeroTrack absent |
 
 Note: Stubs are deterministic and keyed by flight number. Date is accepted and validated but not used for stub lookup.
 
