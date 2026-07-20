@@ -109,6 +109,19 @@ public class FlightStatusEndpointTests : IClassFixture<WebApplicationFactory<Pro
     }
 
     [Fact]
+    public async Task HealthCheck_Returns200WithHealthyStatus()
+    {
+        var response = await _client.GetAsync("/health");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+        var body = await response.Content.ReadFromJsonAsync<Dictionary<string, string>>();
+
+        Assert.NotNull(body);
+        Assert.Equal("Healthy", body!["status"]);
+    }
+
+    [Fact]
     public async Task GetFlightStatus_RequestedDate_AnchorsReturnedTimestampsToSearchDate()
     {
         var response = await _client.GetAsync("/flights/status?flightNumber=SR100&date=11-11-2000");

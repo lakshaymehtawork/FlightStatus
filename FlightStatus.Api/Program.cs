@@ -36,6 +36,8 @@ builder.Services.AddCors(options =>
 
 // ── OpenAPI / Scalar UI ───────────────────────────────────────────────────────
 builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -44,6 +46,8 @@ app.UseCors();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.MapScalarApiReference(); // Scalar UI at /scalar/v1
 }
 
@@ -66,6 +70,11 @@ app.UseExceptionHandler(errorApp =>
             null,
             context.TraceIdentifier));
     }));
+
+app.MapGet("/HealthCheck", () => Results.Ok(new { status = "Healthy" }))
+    .WithName("HealthCheck")
+    .WithSummary("Health check endpoint")
+    .Produces(StatusCodes.Status200OK);
 
 // ── Flight Status Endpoint ────────────────────────────────────────────────────
 app.MapGet("/flights/status", async (
