@@ -151,7 +151,7 @@ Use UI at `http://localhost:4200` or run API calls directly.
 
 ### API Endpoint
 
-`GET /flights/status?flightNumber={code}&date={yyyy-MM-dd}`
+`GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}`
 
 PowerShell example:
 
@@ -177,7 +177,7 @@ Note: Stubs are deterministic and keyed by flight number. Date is accepted and v
 
 ## 8. Assumptions (From BRD)
 
-- ASSUMPTION-001: Date input uses `yyyy-MM-dd`, interpreted as local calendar date for stub simulation.
+- ASSUMPTION-001: Date input uses `DD-MM-YYYY`, interpreted as local calendar date for stub simulation.
 - ASSUMPTION-002: Flight number validation is minimal (non-empty), no strict IATA/ICAO regex.
 - ASSUMPTION-003: Missing means null/empty/whitespace for `flightNumber`, null/empty for `date`.
 - ASSUMPTION-004: Invalid date format returns HTTP 400 with descriptive payload.

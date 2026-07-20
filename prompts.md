@@ -183,3 +183,27 @@ Additional visual-only redesign applied to HTML/SCSS for an aviation operations 
 
 **AI influence:** AI handled troubleshooting, safe middleware adjustment, and documentation synchronization.
 
+---
+
+### Phase 8.x — Date Validation Hotfix
+
+**Prompt summary:** Asked Copilot to stop obviously nonsensical ancient dates from being accepted by the UI and API after a user reported `1000-03-20` being submitted and returning a misleading result.
+
+**Accepted:** Added a shared minimum supported date guard (`1900-01-01`) in the Angular search form and backend endpoint, plus regression tests covering both validation layers.
+
+**Rejected / modified:** Did not change the provider selection rules or stub datasets; the fix is validation-only and keeps the normal lookup flow intact for supported dates.
+
+**AI influence:** Copilot produced the validation pattern, test cases, and messaging; I kept the change narrow to avoid altering unrelated business logic.
+
+---
+
+### Phase 8.y — Date Format Switch
+
+**Prompt summary:** Adjusted the date contract again so the user-facing input is `DD-MM-YYYY` instead of ISO-style text, while keeping the backend response model unchanged.
+
+**Accepted:** Updated the Angular field to a text input with `DD-MM-YYYY` placeholder and rewrote backend parsing/validation to accept `dd-MM-yyyy`.
+
+**Rejected / modified:** Did not change the API response serialization or the underlying `DateOnly` domain model; only the inbound request format changed.
+
+**AI influence:** Copilot supplied the validator rewrite and test updates; I verified the input parsing behavior against the endpoint tests.
+

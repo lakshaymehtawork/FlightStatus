@@ -20,7 +20,7 @@ public sealed class AeroTrackStubProvider : IFlightStatusProvider
 {
     public string ProviderName => "AeroTrack";
 
-    // Keyed by flight number (case-insensitive); date is ignored for stub simplicity
+    // Keyed by flight number (case-insensitive); timestamps are anchored to the request date
     private static readonly IReadOnlyDictionary<string, AeroTrackRawResponse> Stubs =
         new Dictionary<string, AeroTrackRawResponse>(StringComparer.OrdinalIgnoreCase)
         {
@@ -100,17 +100,22 @@ public sealed class AeroTrackStubProvider : IFlightStatusProvider
 
         // delayReason only surfaces when status is Delayed (BR-RULE-032)
         var delayReason = unified == UnifiedFlightStatus.Delayed ? raw.DelayReasonText : null;
+        var scheduledDepartureUtc = ToQueryDateTime(query.Date, raw.SchedDepUtc);
+        var scheduledArrivalUtc = ToQueryDateTime(query.Date, raw.SchedArrUtc);
+        var actualDepartureUtc = ToQueryDateTime(query.Date, raw.ActualDepUtc);
+        var actualArrivalUtc = ToQueryDateTime(query.Date, raw.ActualArrUtc);
+        var lastUpdatedUtc = ToQueryDateTime(query.Date, raw.LastUpdatedUtc)!.Value;
 
         var candidate = new ProviderFlightStatusCandidate(
             ProviderName:         ProviderName,
             FlightNumber:         query.FlightNumber,
             Date:                 query.Date.ToString("yyyy-MM-dd"),
             Status:               unified,
-            LastUpdatedUtc:       raw.LastUpdatedUtc,
-            ScheduledDepartureUtc: raw.SchedDepUtc,
-            ScheduledArrivalUtc:  raw.SchedArrUtc,
-            ActualDepartureUtc:   raw.ActualDepUtc,
-            ActualArrivalUtc:     raw.ActualArrUtc,
+            LastUpdatedUtc:       lastUpdatedUtc,
+            ScheduledDepartureUtc: scheduledDepartureUtc,
+            ScheduledArrivalUtc:  scheduledArrivalUtc,
+            ActualDepartureUtc:   actualDepartureUtc,
+            ActualArrivalUtc:     actualArrivalUtc,
             Terminal:             raw.TerminalCode,
             Gate:                 raw.GateCode,
             DelayReason:          delayReason,
@@ -130,4 +135,15 @@ public sealed class AeroTrackStubProvider : IFlightStatusProvider
             "UNKNOWN"     => UnifiedFlightStatus.Unknown,
             _             => UnifiedFlightStatus.Unknown  // BR-RULE-009: unrecognized -> Unknown
         };
+
+    private static DateTime? ToQueryDateTime(DateOnly queryDate, DateTime? source)
+    {
+        if (!source.HasValue)
+        {
+            return null;
+        }
+
+        var value = source.Value;
+        return new DateTime(queryDate.Year, queryDate.Month, queryDate.Day, value.Hour, value.Minute, value.Second, DateTimeKind.Utc);
+    }
 }

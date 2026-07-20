@@ -102,6 +102,14 @@ _Updated progressively as each SDLC phase completes. Final version will be writt
 - Strengthened log context by including request identifier in request-entry and provider result/exception logs.
 - Revalidated backend tests after operational logging updates: `26/26` passing.
 
+### Date validation hotfix
+- Added a minimum supported date guard (`1900-01-01`) in both the Angular search form and the backend endpoint after a user reported `1000-03-20` being accepted and returning a misleading result.
+- Added regression coverage for the rejected date path in both the frontend and integration tests.
+
+### Date format switch
+- Changed the inbound date format from ISO-style input to `DD-MM-YYYY` to match the user-facing requirement, while leaving the backend response model as a `DateOnly`-backed ISO JSON value.
+- Updated the search form to a text input with `DD-MM-YYYY` placeholder and validated both format and minimum supported date in code.
+
 ### Updated dimension snapshot (latest)
 - Analyze: Pass
 - Design: Pass

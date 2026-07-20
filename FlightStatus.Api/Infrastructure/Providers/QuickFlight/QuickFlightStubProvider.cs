@@ -22,7 +22,7 @@ public sealed class QuickFlightStubProvider : IFlightStatusProvider
 {
     public string ProviderName => "QuickFlight";
 
-    // Keyed by flight number (case-insensitive); date is ignored for stub simplicity
+    // Keyed by flight number (case-insensitive); timestamps are anchored to the request date
     private static readonly IReadOnlyDictionary<string, QuickFlightRawResponse> Stubs =
         new Dictionary<string, QuickFlightRawResponse>(StringComparer.OrdinalIgnoreCase)
         {
@@ -80,6 +80,9 @@ public sealed class QuickFlightStubProvider : IFlightStatusProvider
             return Task.FromResult<ProviderFlightStatusCandidate?>(null);
 
         var unified = MapStatus(raw.Status);
+        var scheduledDepartureUtc = ToQueryDateTime(query.Date, raw.ScheduledDepartureUtc);
+        var scheduledArrivalUtc = ToQueryDateTime(query.Date, raw.ScheduledArrivalUtc);
+        var lastUpdatedUtc = ToQueryDateTime(query.Date, raw.LastUpdatedUtc)!.Value;
 
         // BR-RULE-031: QuickFlight never populates terminal, gate, actual times, or delayReason
         var candidate = new ProviderFlightStatusCandidate(
@@ -87,9 +90,9 @@ public sealed class QuickFlightStubProvider : IFlightStatusProvider
             FlightNumber:          query.FlightNumber,
             Date:                  query.Date.ToString("yyyy-MM-dd"),
             Status:                unified,
-            LastUpdatedUtc:        raw.LastUpdatedUtc,
-            ScheduledDepartureUtc: raw.ScheduledDepartureUtc,
-            ScheduledArrivalUtc:   raw.ScheduledArrivalUtc,
+            LastUpdatedUtc:        lastUpdatedUtc,
+            ScheduledDepartureUtc: scheduledDepartureUtc,
+            ScheduledArrivalUtc:   scheduledArrivalUtc,
             ActualDepartureUtc:    null,
             ActualArrivalUtc:      null,
             Terminal:              null,
@@ -111,4 +114,15 @@ public sealed class QuickFlightStubProvider : IFlightStatusProvider
             "UNKNOWN"   => UnifiedFlightStatus.Unknown,
             _           => UnifiedFlightStatus.Unknown   // BR-RULE-015: unrecognized -> Unknown
         };
+
+    private static DateTime? ToQueryDateTime(DateOnly queryDate, DateTime? source)
+    {
+        if (!source.HasValue)
+        {
+            return null;
+        }
+
+        var value = source.Value;
+        return new DateTime(queryDate.Year, queryDate.Month, queryDate.Day, value.Hour, value.Minute, value.Second, DateTimeKind.Utc);
+    }
 }

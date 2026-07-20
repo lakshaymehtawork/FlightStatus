@@ -16,7 +16,7 @@ Use assignment and spec names exactly where defined.
 Do not rename contract types or endpoint paths without updating spec.md first.
 
 Mandatory names and contracts:
-- Endpoint path: `GET /flights/status?flightNumber={code}&date={yyyy-MM-dd}`
+- Endpoint path: `GET /flights/status?flightNumber={code}&date={DD-MM-YYYY}`
 - Interfaces: `IFlightStatusProvider`, `IFlightStatusService`
 - Provider implementations: `AeroTrackStubProvider`, `QuickFlightStubProvider`
 - Response model: `FlightStatusResult`

@@ -1,4 +1,6 @@
 using System.Text.Json.Serialization;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using FlightStatus.Api.Application.Services;
 using FlightStatus.Api.Contracts;
 using FlightStatus.Api.Domain.Abstractions;
@@ -83,14 +85,19 @@ app.MapGet("/flights/status", async (
 
     if (string.IsNullOrWhiteSpace(flightNumber))
         errors.Add("flightNumber is required.");
+    else if (!Regex.IsMatch(flightNumber, "^[A-Za-z0-9]+$"))
+        errors.Add("flightNumber must contain only letters and digits.");
 
     if (string.IsNullOrWhiteSpace(date))
         errors.Add("date is required.");
 
     DateOnly parsedDate = default;
     if (!string.IsNullOrWhiteSpace(date) &&
-        !DateOnly.TryParseExact(date, "yyyy-MM-dd", out parsedDate))
-        errors.Add("date must be in yyyy-MM-dd format.");
+        !DateOnly.TryParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        errors.Add("date must be in DD-MM-YYYY format.");
+
+    if (errors.Count == 0 && parsedDate < new DateOnly(1900, 1, 1))
+        errors.Add("date must be on or after 01-01-1900.");
 
     if (errors.Count > 0)
         return Results.BadRequest(new ApiError(

@@ -6,6 +6,8 @@
         id="flightNumber"
         type="text"
         formControlName="flightNumber"
+        #flightNumberInput
+        (input)="formatFlightNumberInput(flightNumberInput.value)"
         placeholder="e.g. SR100"
         autocomplete="off"
         aria-required="true"
@@ -16,6 +18,8 @@
           <span class="field-error" role="alert">Flight number is required.</span>
         } @else if (flightNumberControl.touched && flightNumberControl.hasError('minlength')) {
           <span class="field-error" role="alert">Flight number must be at least 2 characters.</span>
+        } @else if (flightNumberControl.touched && flightNumberControl.hasError('pattern')) {
+          <span class="field-error" role="alert">Flight number must contain only letters and digits.</span>
         }
       </div>
     </div>
@@ -24,14 +28,22 @@
       <label for="date">Date</label>
       <input
         id="date"
-        type="date"
+        type="text"
+        inputmode="numeric"
         formControlName="date"
+        #dateInput
+        (input)="formatDateInput(dateInput.value)"
+        placeholder="DD-MM-YYYY"
         aria-required="true"
         [attr.aria-invalid]="dateControl.invalid && dateControl.touched"
       />
       <div class="field-errors" aria-live="polite">
         @if (dateControl.touched && dateControl.hasError('required')) {
           <span class="field-error" role="alert">Date is required.</span>
+        } @else if (dateControl.touched && dateControl.hasError('minDate')) {
+          <span class="field-error" role="alert">Date must be on or after 01-01-1900.</span>
+        } @else if (dateControl.touched && dateControl.hasError('dateFormat')) {
+          <span class="field-error" role="alert">Date must be in DD-MM-YYYY format.</span>
         }
       </div>
     </div>
